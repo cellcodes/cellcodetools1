@@ -21,6 +21,7 @@ body {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     width: 300px;
+    margin-bottom: 40px; /* spacing between tools */
 }
 
 label {
@@ -70,4 +71,28 @@ button:hover {
 
 #copyBtn:hover {
     background: #1e7e34;
+}
+
+/* ------------------------------ */
+/* Internet Speed Test Styling    */
+/* ------------------------------ */
+
+.speed-results p {
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+#startSpeedTest {
+    padding: 10px;
+    background: #4caf50;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+#startSpeedTest:hover {
+    background: #45a049;
 }
