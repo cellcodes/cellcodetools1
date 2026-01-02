@@ -82,7 +82,24 @@ function getConnectionType() {
     return nav ? nav.effectiveType.toUpperCase() : "Unknown";
 }
 
-// Run All Tests
-document.getElementById("startSpeedTest").addEventListener("click", async () => {
-    document.getElementById("pingResult").textContent = "Testing...";
-    document
+
+// ------------------------------
+// FIXED: Run All Tests (wrapped so it ALWAYS works)
+// ------------------------------
+
+document.addEventListener("DOMContentLoaded", () => {
+    const btn = document.getElementById("startSpeedTest");
+    if (!btn) return; // safety check
+
+    btn.addEventListener("click", async () => {
+        document.getElementById("pingResult").textContent = "Testing...";
+        document.getElementById("downloadResult").textContent = "Testing...";
+        document.getElementById("connectionType").textContent = getConnectionType();
+
+        const ping = await testPing();
+        document.getElementById("pingResult").textContent = `${ping} ms`;
+
+        const download = await testDownload();
+        document.getElementById("downloadResult").textContent = `${download} Mbps`;
+    });
+});
