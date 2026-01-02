@@ -1,4 +1,7 @@
-// Generate button logic
+// ------------------------------
+// PASSWORD GENERATOR
+// ------------------------------
+
 document.getElementById("generateBtn").addEventListener("click", function () {
     const length = parseInt(document.getElementById("length").value);
     const includeNumbers = document.getElementById("includeNumbers").checked;
@@ -14,7 +17,6 @@ document.getElementById("generateBtn").addEventListener("click", function () {
         password += chars.charAt(Math.floor(Math.random() * chars.length));
     }
 
-    // show password in output div
     document.getElementById("output").textContent = password;
 });
 
@@ -22,7 +24,6 @@ document.getElementById("generateBtn").addEventListener("click", function () {
 document.getElementById("copyBtn").addEventListener("click", function () {
     const password = document.getElementById("output").textContent.trim();
 
-    // if nothing generated yet, do nothing
     if (!password) {
         alert("Generate a password first.");
         return;
@@ -37,3 +38,51 @@ document.getElementById("copyBtn").addEventListener("click", function () {
             alert("Could not copy. Browser blocked clipboard access.");
         });
 });
+
+
+// ------------------------------
+// INTERNET SPEED TEST (NO BACKEND)
+// ------------------------------
+
+// Ping Test
+async function testPing() {
+    const start = performance.now();
+    try {
+        await fetch("https://www.cloudflare.com/cdn-cgi/trace", { cache: "no-store" });
+        const end = performance.now();
+        return Math.round(end - start);
+    } catch {
+        return "Error";
+    }
+}
+
+// Download Speed Test
+async function testDownload() {
+    const fileUrl = "https://speed.cloudflare.com/__down?bytes=5000000"; // 5MB test file
+    const start = performance.now();
+
+    try {
+        const response = await fetch(fileUrl, { cache: "no-store" });
+        await response.blob();
+        const end = performance.now();
+
+        const duration = (end - start) / 1000; // seconds
+        const fileSizeMB = 5; // MB
+        const speedMbps = (fileSizeMB / duration) * 8; // convert MB/s to Mbps
+
+        return speedMbps.toFixed(2);
+    } catch {
+        return "Error";
+    }
+}
+
+// Connection Type
+function getConnectionType() {
+    const nav = navigator.connection || navigator.webkitConnection || navigator.mozConnection;
+    return nav ? nav.effectiveType.toUpperCase() : "Unknown";
+}
+
+// Run All Tests
+document.getElementById("startSpeedTest").addEventListener("click", async () => {
+    document.getElementById("pingResult").textContent = "Testing...";
+    document
