@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Compressor - CellCodeTools</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="title">File Compressor</div>
+
+    <div class="container">
+        <p>Select multiple files to compress into a ZIP file.</p>
+
+        <input type="file" id="compressFiles" multiple>
+
+        <button id="compressBtn">Create ZIP</button>
+
+        <div id="compressOutput"></div>
+    </div>
+
+    <div class="nav-links">
+        <a href="index.html">← Back to Home</a>
+    </div>
+
+    <!-- REQUIRED SCRIPTS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>

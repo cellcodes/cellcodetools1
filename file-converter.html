@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Converter - CellCodeTools</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="title">File Converter</div>
+
+    <div class="container">
+        <p>Select a file and choose a conversion type.</p>
+
+        <label>Conversion Type</label>
+        <select id="convertType">
+            <option value="">-- Select Conversion --</option>
+
+            <!-- Existing -->
+            <option value="imgToBase64">Image → Base64</option>
+            <option value="base64ToImg">Base64 → Image</option>
+            <option value="jsonToCsv">JSON → CSV</option>
+            <option value="csvToJson">CSV → JSON</option>
+
+            <!-- New -->
+            <option value="imgToWebp">Image → WebP</option>
+            <option value="textToPdf">Text → PDF</option>
+            <option value="pdfToText">PDF → Text</option>
+            <option value="textUpper">Text → UPPERCASE</option>
+            <option value="textLower">Text → lowercase</option>
+            <option value="htmlToText">HTML → Text</option>
+        </select>
+
+        <label>Select File</label>
+        <input type="file" id="convertFile">
+
+        <button id="convertBtn">Convert</button>
+
+        <div id="convertOutput"></div>
+    </div>
+
+    <div class="nav-links">
+        <a href="index.html">← Back to Home</a>
+    </div>
+
+    <!-- Libraries for PDF support -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
