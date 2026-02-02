@@ -21,7 +21,7 @@ body {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     width: 300px;
-    margin-bottom: 40px; /* spacing between tools */
+    margin-bottom: 40px;
 }
 
 label {
@@ -95,4 +95,31 @@ button:hover {
 
 #startSpeedTest:hover {
     background: #45a049;
+}
+
+/* ------------------------------ */
+/* Navigation Links for New Pages */
+/* ------------------------------ */
+
+.nav-links {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 300px;
+    text-align: center;
+}
+
+.nav-links a {
+    display: block;
+    padding: 10px;
+    background: #0078ff;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+.nav-links a:hover {
+    background: #005fcc;
 }
